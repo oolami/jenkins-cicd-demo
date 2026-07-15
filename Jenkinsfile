@@ -3,7 +3,6 @@ pipeline {
 
     tools {
         maven 'Maven-3'
-        jdk 'JDK-21'
     }
 
     environment {
@@ -15,6 +14,12 @@ pipeline {
     }
 
     stages {
+        stage('verify tools') {
+            steps {
+                sh 'java -version'
+                sh 'mvm -version'
+        }
+    }
 
         stage('Checkout Code') {
             steps {
